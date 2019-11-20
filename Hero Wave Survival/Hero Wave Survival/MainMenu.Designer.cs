@@ -1,6 +1,6 @@
 ﻿namespace Hero_Wave_Survival
 {
-    partial class Form1
+    partial class MainMenu
     {
         /// <summary>
         /// Required designer variable.
