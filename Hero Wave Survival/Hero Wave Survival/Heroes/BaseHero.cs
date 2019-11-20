@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Hero_Wave_Survival.Monsters;
 
 namespace Hero_Wave_Survival.Heroes
 {
     public class BaseHero : IHero
     {
+        private UserControl _avatar;
+
         private string _name;
 
         private int _health;
@@ -36,6 +39,8 @@ namespace Hero_Wave_Survival.Heroes
         public int Accuracy { get { return _acc; } set { _acc = value; } }
 
         public bool isAlive { get { return _isAlive; }}
+
+        public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
 
         Random chanceToHit = new Random();
 

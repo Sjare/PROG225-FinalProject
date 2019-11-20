@@ -8,7 +8,7 @@ namespace Hero_Wave_Survival.Heroes.Warrior
 {
     class Warrior : BaseHero
     {
-        public Warrior()
+        public Warrior(string name)
         {
             Health = 100;
             Armor = 10;
@@ -16,6 +16,9 @@ namespace Hero_Wave_Survival.Heroes.Warrior
             Damage = 25;
             EXP = 0;
             Dodge = 5;
+            Name = name;
+            Gold = 0;
+            Avatar = new WAvatar(Name, Health, Level, Armor, Dodge, Speed, Gold, EXP, Accuracy, Damage);
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using Hero_Wave_Survival.Monsters;
 
 namespace Hero_Wave_Survival.Heroes
@@ -20,6 +21,8 @@ namespace Hero_Wave_Survival.Heroes
         int Dodge { get; set; }
         int Gold { get; set; }
         int Accuracy { get; set; }
+
+        UserControl Avatar { get; set; }
 
         bool isAlive { get;}
 

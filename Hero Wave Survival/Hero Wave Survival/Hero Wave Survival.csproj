@@ -46,11 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="GameScreens\Arena.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="GameScreens\Arena.Designer.cs">
+      <DependentUpon>Arena.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GameScreens\HeroPicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameScreens\HeroPicker.Designer.cs">
+      <DependentUpon>HeroPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Heroes\BaseHero.cs" />
     <Compile Include="Heroes\IHero.cs" />
@@ -65,6 +77,18 @@
     <Compile Include="Monsters\IMonster.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GameScreens\Arena.resx">
+      <DependentUpon>Arena.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GameScreens\HeroPicker.resx">
+      <DependentUpon>HeroPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Heroes\Warrior\WAvatar.resx">
+      <DependentUpon>WAvatar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
