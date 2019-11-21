@@ -30,7 +30,9 @@
         {
             this.tbArena = new System.Windows.Forms.TableLayoutPanel();
             this.tbEnem = new System.Windows.Forms.TableLayoutPanel();
+            this.btnStart = new System.Windows.Forms.Button();
             this.tbArena.SuspendLayout();
+            this.tbEnem.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbArena
@@ -52,6 +54,7 @@
             this.tbEnem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbEnem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbEnem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbEnem.Controls.Add(this.btnStart, 1, 0);
             this.tbEnem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbEnem.Location = new System.Drawing.Point(3, 3);
             this.tbEnem.Name = "tbEnem";
@@ -60,6 +63,17 @@
             this.tbEnem.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tbEnem.Size = new System.Drawing.Size(854, 316);
             this.tbEnem.TabIndex = 0;
+            // 
+            // btnStart
+            // 
+            this.btnStart.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnStart.Location = new System.Drawing.Point(287, 3);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(278, 23);
+            this.btnStart.TabIndex = 0;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
             // Arena
             // 
@@ -70,6 +84,7 @@
             this.Name = "Arena";
             this.Text = "Arena";
             this.tbArena.ResumeLayout(false);
+            this.tbEnem.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -78,5 +93,6 @@
 
         private System.Windows.Forms.TableLayoutPanel tbArena;
         private System.Windows.Forms.TableLayoutPanel tbEnem;
+        private System.Windows.Forms.Button btnStart;
     }
 }

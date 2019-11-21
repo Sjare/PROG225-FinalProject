@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hero_Wave_Survival.GameScreens;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace Hero_Wave_Survival
         public MainMenu()
         {
             InitializeComponent();
+        }
+
+        private void BtnStart_Click(object sender, EventArgs e)
+        {
+            HeroPicker heroPicker = new HeroPicker();
+
+            heroPicker.Show();
+
+            this.Hide();
         }
     }
 }

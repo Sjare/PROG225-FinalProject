@@ -92,6 +92,7 @@
             this.btnWarrior.TabIndex = 0;
             this.btnWarrior.Text = "Warrior";
             this.btnWarrior.UseVisualStyleBackColor = true;
+            this.btnWarrior.Click += new System.EventHandler(this.btnWarrior_Click);
             // 
             // btnShadow
             // 

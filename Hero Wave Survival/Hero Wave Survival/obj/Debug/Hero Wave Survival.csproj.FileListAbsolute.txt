@@ -1,0 +1,14 @@
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\Hero Wave Survival.exe.config
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\Hero Wave Survival.exe
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\Hero Wave Survival.pdb
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csprojAssemblyReference.cache
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.Arena.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.HeroPicker.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Heroes.Warrior.WAvatar.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.MainMenu.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Properties.Resources.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.GenerateResource.cache
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.CoreCompileInputs.cache
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.exe
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.pdb
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Zombie.ZAvatar.resources

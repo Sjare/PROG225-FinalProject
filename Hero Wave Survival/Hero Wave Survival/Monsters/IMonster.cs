@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Hero_Wave_Survival.Monsters
 {
@@ -19,6 +20,8 @@ namespace Hero_Wave_Survival.Monsters
         int Accuracy { get; set; }
         
         bool isAlive { get; }
+
+        UserControl Avatar { get; set; }
 
         void TakeDamage(int damage);
         void Attack(IHero hero);
