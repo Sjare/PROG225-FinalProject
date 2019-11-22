@@ -40,7 +40,7 @@ namespace Hero_Wave_Survival.Monsters
 
         public BaseMonster()
         {
-            
+
         }
 
         public void Attack(IHero hero)

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hero_Wave_Survival.Monsters.Zombie
 {
-    class Zombie : BaseMonster
+    public class Zombie : BaseMonster
     {
         public Zombie()
         {
@@ -18,6 +18,12 @@ namespace Hero_Wave_Survival.Monsters.Zombie
             Dodge = 0;
             Worth = 1;
             Avatar = new ZAvatar(this.Health);
+            Avatar.Click += Avatar_Click;
+        }
+
+        private void Avatar_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

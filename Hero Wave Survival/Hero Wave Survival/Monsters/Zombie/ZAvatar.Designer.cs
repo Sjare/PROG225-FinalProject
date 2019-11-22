@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ZAvatar));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbZAvatar = new System.Windows.Forms.PictureBox();
             this.pbZombieHealth = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbZAvatar)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.pbZAvatar, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pbZombieHealth, 0, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -50,16 +50,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(194, 194);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // pictureBox1
+            // pbZAvatar
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(188, 155);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.pbZAvatar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pbZAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbZAvatar.Image")));
+            this.pbZAvatar.Location = new System.Drawing.Point(3, 3);
+            this.pbZAvatar.Name = "pbZAvatar";
+            this.pbZAvatar.Size = new System.Drawing.Size(188, 155);
+            this.pbZAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbZAvatar.TabIndex = 0;
+            this.pbZAvatar.TabStop = false;
+//            this.pbZAvatar.Click += new System.EventHandler(this.PbZAvatar_Click);
             // 
             // pbZombieHealth
             // 
@@ -77,7 +78,7 @@
             this.Name = "ZAvatar";
             this.Size = new System.Drawing.Size(200, 200);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbZAvatar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -85,7 +86,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbZAvatar;
         private System.Windows.Forms.ProgressBar pbZombieHealth;
     }
 }
