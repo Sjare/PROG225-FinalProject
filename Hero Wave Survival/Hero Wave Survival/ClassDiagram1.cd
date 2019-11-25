@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Hero_Wave_Survival.Game_Controller.GameController" Collapsed="true">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQEAAAAAAAAAAAAAAAAEAAAAAAAAgAAAgAAA=</HashCode>
+      <FileName>Game Controller\GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hero_Wave_Survival.Heroes.Warrior.Warrior" Collapsed="true">
+    <Position X="8.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Heroes\Warrior\Warrior.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hero_Wave_Survival.Heroes.BaseHero" Collapsed="true">
+    <Position X="6.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAALADAAhEEwAAAABQIAQQBAIAAIAADFAAAgAEAQAE=</HashCode>
+      <FileName>Heroes\BaseHero.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Hero_Wave_Survival.Monsters.Zombie.Zombie">
+    <Position X="2.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Monsters\Zombie\Zombie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Hero_Wave_Survival.Monsters.BaseMonster" Collapsed="true">
+    <Position X="0.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABDADAAhEEwAAAAAQIAEABAIAAIAACFAAAgAEAQAA=</HashCode>
+      <FileName>Monsters\BaseMonster.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Hero_Wave_Survival.Heroes.IHero" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACACAAgAAgAAAAAQIAAQBAIAAAAABEAAAgAEAAAE=</HashCode>
+      <FileName>Heroes\IHero.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Hero_Wave_Survival.Monsters.IMonster" Collapsed="true">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABCACAAgAAgAAAAAQIAAABAIAAAAAAEAAAgAEAAAA=</HashCode>
+      <FileName>Monsters\IMonster.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

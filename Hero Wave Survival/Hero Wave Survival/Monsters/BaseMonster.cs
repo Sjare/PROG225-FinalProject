@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Hero_Wave_Survival.Heroes;
+using Hero_Wave_Survival.Monsters.Zombie;
 
 namespace Hero_Wave_Survival.Monsters
 {
-    public class BaseMonster : IMonster
+    public class BaseMonster : IMonster,IDisposable
     {
         private int _health;
         private int _armor;
@@ -20,6 +21,8 @@ namespace Hero_Wave_Survival.Monsters
         private int _acc;
 
         private bool _isAlive = true;
+
+        private UserControl _avatar;
 
         public int Health { get { return _health; } set { _health = value; } }
         public int Armor { get { return _armor; } set { _armor = value; } }
@@ -36,18 +39,21 @@ namespace Hero_Wave_Survival.Monsters
 
         Random chanceToHit = new Random();
 
-        private UserControl _avatar;
-
         public BaseMonster()
         {
 
         }
 
-        public void Attack(IHero hero)
+        public bool Attack(IHero hero)
         {
-            if(chanceToHit.Next(0,_acc) > hero.Dodge)
+            if (chanceToHit.Next(0, _acc) > hero.Dodge)
             {
                 hero.TakeDamage(_damage);
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 
@@ -62,6 +68,11 @@ namespace Hero_Wave_Survival.Monsters
                 _health = 0;
                 _isAlive = false;
             }
+        }
+
+        public void Dispose()
+        {
+            //Free resources
         }
     }
 }

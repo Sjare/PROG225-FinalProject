@@ -26,5 +26,18 @@ namespace Hero_Wave_Survival.Heroes.Warrior
             lblName.Text = name;
             lblSpeed.Text = s.ToString();
         }
+
+        public void updateAvatar(int hp, int level, int arm, int d, int s, int g, int exp, int acc, int dam)
+        {
+            lblAcc.Text = acc.ToString();
+            lblArmor.Text = arm.ToString();
+            lblDamage.Text = dam.ToString();
+            lblDodge.Text = d.ToString();
+            lblEXP.Text = exp.ToString();
+            lblGold.Text = g.ToString();
+            lblHP.Text = hp.ToString();
+            lblLevel.Text = level.ToString();
+            lblSpeed.Text = s.ToString();
+        }
     }
 }

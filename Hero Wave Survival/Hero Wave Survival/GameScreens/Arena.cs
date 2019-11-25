@@ -19,8 +19,6 @@ namespace Hero_Wave_Survival.GameScreens
 
         GameController Controller;
 
-        private List<BaseMonster> monsters = new List<BaseMonster>();
-
         public Arena(BaseHero baseHero)
         {
             InitializeComponent();
@@ -31,20 +29,16 @@ namespace Hero_Wave_Survival.GameScreens
 
             hero.Avatar.Dock = DockStyle.Fill;
 
-            Controller = new GameController(hero);
+            Controller = new GameController(hero,this);
+
+
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            monsters = Controller.WaveSpawner();
-
-            foreach(BaseMonster monster in monsters)
-            {
-                tbEnem.Controls.Add(monster.Avatar);
-                monster.Avatar.Dock = DockStyle.Fill;
-            }
-
+            Controller.WaveSpawner();
             btnStart.Visible = false;
+            this.Controls.Remove(btnStart);
         }
     }
 }

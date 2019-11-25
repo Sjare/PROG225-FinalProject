@@ -42,12 +42,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.pbZAvatar, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.pbZombieHealth, 0, 1);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83.33334F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(194, 194);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.10181F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.42036F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 1.477832F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(200, 200);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // pbZAvatar
@@ -56,18 +58,17 @@
             this.pbZAvatar.Image = ((System.Drawing.Image)(resources.GetObject("pbZAvatar.Image")));
             this.pbZAvatar.Location = new System.Drawing.Point(3, 3);
             this.pbZAvatar.Name = "pbZAvatar";
-            this.pbZAvatar.Size = new System.Drawing.Size(188, 155);
+            this.pbZAvatar.Size = new System.Drawing.Size(194, 160);
             this.pbZAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbZAvatar.TabIndex = 0;
             this.pbZAvatar.TabStop = false;
-//            this.pbZAvatar.Click += new System.EventHandler(this.PbZAvatar_Click);
             // 
             // pbZombieHealth
             // 
             this.pbZombieHealth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbZombieHealth.Location = new System.Drawing.Point(3, 164);
+            this.pbZombieHealth.Location = new System.Drawing.Point(3, 169);
             this.pbZombieHealth.Name = "pbZombieHealth";
-            this.pbZombieHealth.Size = new System.Drawing.Size(188, 27);
+            this.pbZombieHealth.Size = new System.Drawing.Size(194, 28);
             this.pbZombieHealth.TabIndex = 1;
             // 
             // ZAvatar

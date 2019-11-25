@@ -14,6 +14,8 @@ namespace Hero_Wave_Survival.Monsters.Zombie
     {
         public PictureBox Portait { get { return pbZAvatar; } }
 
+        public ProgressBar Health { get { return pbZombieHealth; } }
+
         public ZAvatar(int Health)
         {
             InitializeComponent();
@@ -25,6 +27,5 @@ namespace Hero_Wave_Survival.Monsters.Zombie
         {
             pbZombieHealth.Value = health;
         }
-
     }
 }

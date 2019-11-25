@@ -92,7 +92,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tbArena;
-        private System.Windows.Forms.TableLayoutPanel tbEnem;
         private System.Windows.Forms.Button btnStart;
+        public System.Windows.Forms.TableLayoutPanel tbEnem;
     }
 }

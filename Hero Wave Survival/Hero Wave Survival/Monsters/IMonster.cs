@@ -1,4 +1,5 @@
 ﻿using Hero_Wave_Survival.Heroes;
+using Hero_Wave_Survival.Monsters.Zombie;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,6 @@ namespace Hero_Wave_Survival.Monsters
         UserControl Avatar { get; set; }
 
         void TakeDamage(int damage);
-        void Attack(IHero hero);
+        bool Attack(IHero hero);
     }
 }

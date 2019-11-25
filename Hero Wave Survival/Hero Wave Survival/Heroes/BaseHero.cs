@@ -24,6 +24,7 @@ namespace Hero_Wave_Survival.Heroes
         private int _exp;
         private int _acc;
 
+        private bool _canAttack = true;
         private bool _isAlive = true;
 
         public string Name { get { return _name; } set { _name = value; } }
@@ -42,30 +43,55 @@ namespace Hero_Wave_Survival.Heroes
 
         public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
 
+        private Timer attackTimer;
+
         Random chanceToHit = new Random();
 
         public BaseHero()
         {
 
+
+        }
+
+        private void AttackTimer_Tick(object sender, EventArgs e)
+        {
+            _canAttack = true;
+        }
+
+        protected void setTimer()
+        {
+            attackTimer = new Timer();
+            attackTimer.Interval = _speed * 1000; //turns speed into seconds for timer
+            attackTimer.Enabled = true;
+            attackTimer.Tick += AttackTimer_Tick;
         }
 
         public bool Attack(IMonster monster)
         {
-            if(chanceToHit.Next(1,_acc) > monster.Dodge)
+            if (_canAttack)
             {
-                monster.TakeDamage(_damage);
-
-                if (!monster.isAlive)
+                if (chanceToHit.Next(1, _acc) > monster.Dodge)
                 {
-                    _exp += monster.EXP;
+                    monster.TakeDamage(_damage);
+                    _canAttack = false;
 
-                    if (_exp == 5)
+                    if (!monster.isAlive)
                     {
-                        LevelUp();
-                    }
-                }
+                        _exp += monster.EXP;
+                        _gold += monster.Worth;
 
-                return true;
+                        if (_exp == 5)
+                        {
+                            LevelUp();
+                        }
+                    }
+
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
@@ -93,6 +119,16 @@ namespace Hero_Wave_Survival.Heroes
             _dodge += 1;
             _speed += 1;
             _exp = 0;
+        }
+
+        public virtual void updateAvatar()
+        {
+            //overridden later
+        }
+
+        public virtual void specialAttack()
+        {
+            //overridden later
         }
     }
 }
