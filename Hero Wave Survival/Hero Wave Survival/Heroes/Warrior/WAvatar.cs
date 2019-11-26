@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hero_Wave_Survival.Items;
 
 namespace Hero_Wave_Survival.Heroes.Warrior
 {
     public partial class WAvatar : UserControl
     {
-        public WAvatar(string name, int hp, int level, int arm, int d, int s, int g, int exp, int acc,int dam)
+        public WAvatar(string name, int hp, int level, int arm, int d, int s, int g, int exp, int acc,int dam, Stack<IItem> items)
         {
             InitializeComponent();
             lblAcc.Text = acc.ToString();
@@ -25,9 +26,10 @@ namespace Hero_Wave_Survival.Heroes.Warrior
             lblLevel.Text = level.ToString();
             lblName.Text = name;
             lblSpeed.Text = s.ToString();
+            lblHPCount.Text = items.Count.ToString();
         }
 
-        public void updateAvatar(int hp, int level, int arm, int d, int s, int g, int exp, int acc, int dam)
+        public void updateAvatar(int hp, int level, int arm, int d, int s, int g, int exp, int acc, int dam, Stack<IItem> items)
         {
             lblAcc.Text = acc.ToString();
             lblArmor.Text = arm.ToString();
@@ -38,6 +40,12 @@ namespace Hero_Wave_Survival.Heroes.Warrior
             lblHP.Text = hp.ToString();
             lblLevel.Text = level.ToString();
             lblSpeed.Text = s.ToString();
+            lblHPCount.Text = items.Count.ToString();
+        }
+
+        private void BtnUseHP_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

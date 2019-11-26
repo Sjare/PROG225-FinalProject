@@ -100,6 +100,9 @@
     <EmbeddedResource Include="GameScreens\HeroPicker.resx">
       <DependentUpon>HeroPicker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameScreens\StoreFront.resx">
+      <DependentUpon>StoreFront.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Heroes\Warrior\WAvatar.resx">
       <DependentUpon>WAvatar.cs</DependentUpon>
     </EmbeddedResource>

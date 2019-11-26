@@ -26,7 +26,7 @@ namespace Hero_Wave_Survival.Heroes
 
         UserControl Avatar { get; set; }
 
-        List<IItem> Backpack { get; }
+        Stack<IItem> Backpack { get; }
 
         bool isAlive { get;}
 

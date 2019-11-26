@@ -13,7 +13,7 @@ namespace Hero_Wave_Survival.Heroes
     {
         private UserControl _avatar;
 
-        private List<IItem> _backpack;
+        private Stack<HealthPotion> _backpack = new Stack<HealthPotion>();
 
         private string _name;
 
@@ -48,7 +48,7 @@ namespace Hero_Wave_Survival.Heroes
 
         public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
 
-        public List<IItem> Backpack { get { return _backpack; } }
+        public Stack<HealthPotion> Backpack { get { return _backpack; } }
 
         private Timer attackTimer;
 
@@ -57,7 +57,6 @@ namespace Hero_Wave_Survival.Heroes
 
         public BaseHero()
         {
-
 
         }
 
@@ -142,6 +141,18 @@ namespace Hero_Wave_Survival.Heroes
         public virtual void specialAttack()
         {
             //overridden later
+        }
+
+        public void Heal()
+        {
+            if(Backpack.Count != 0)
+            {
+                HealthPotion buffer = Backpack.Pop();
+
+                _health += buffer.RestoreHP;
+            }
+
+            //TODO: Come back and spit an error out if backpack is empty
         }
     }
 }

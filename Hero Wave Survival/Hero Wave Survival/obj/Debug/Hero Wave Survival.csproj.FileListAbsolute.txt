@@ -12,3 +12,4 @@ F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\He
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.exe
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.pdb
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csprojAssemblyReference.cache
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.StoreFront.resources

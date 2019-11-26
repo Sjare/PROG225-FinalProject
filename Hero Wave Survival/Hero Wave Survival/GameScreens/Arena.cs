@@ -48,7 +48,8 @@ namespace Hero_Wave_Survival.GameScreens
 
         private void BtnStore_Click(object sender, EventArgs e)
         {
-
+            StoreFront storeFront = new StoreFront(this.hero);
+            storeFront.ShowDialog();
         }
 
         private void BtnClose_Click(object sender, EventArgs e)

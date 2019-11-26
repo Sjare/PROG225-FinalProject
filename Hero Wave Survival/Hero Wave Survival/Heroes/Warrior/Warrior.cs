@@ -24,17 +24,24 @@ namespace Hero_Wave_Survival.Heroes.Warrior
             Gold = 0;
             Accuracy = 1;
 
-            tmp = new WAvatar(Name, Health, Level, Armor, Dodge, Speed, Gold, EXP, Accuracy, ((HighEndDamage+LowEndDamage)/2));
+            Backpack.Push(new HealthPotion());
+
+            tmp = new WAvatar(Name, Health, Level, Armor, Dodge, Speed, Gold, EXP, Accuracy, ((HighEndDamage+LowEndDamage)/2), Backpack);
+            tmp.btnUseHP.Click += BtnUseHP_Click;
+
             Avatar = tmp;
 
             setTimer();
+        }
 
-            Backpack.Add(new HealthPotion());
+        private void BtnUseHP_Click(object sender, EventArgs e)
+        {
+            Heal();
         }
 
         public override void updateAvatar()
         {
-            tmp.updateAvatar(Health, Level, Armor, Dodge, Speed, Gold, EXP, Accuracy, ((HighEndDamage + LowEndDamage) / 2));
+            tmp.updateAvatar(Health, Level, Armor, Dodge, Speed, Gold, EXP, Accuracy, ((HighEndDamage + LowEndDamage) / 2), Backpack);
         }
     }
 }
