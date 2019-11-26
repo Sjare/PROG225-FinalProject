@@ -40,5 +40,20 @@ namespace Hero_Wave_Survival.GameScreens
             btnStart.Visible = false;
             this.Controls.Remove(btnStart);
         }
+
+        private void BtnNextWave_Click(object sender, EventArgs e)
+        {
+            Controller.WaveSpawner();
+        }
+
+        private void BtnStore_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

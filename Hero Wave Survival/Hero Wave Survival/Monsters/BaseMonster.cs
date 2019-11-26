@@ -9,12 +9,13 @@ using Hero_Wave_Survival.Monsters.Zombie;
 
 namespace Hero_Wave_Survival.Monsters
 {
-    public class BaseMonster : IMonster,IDisposable
+    public class BaseMonster : IMonster
     {
         private int _health;
         private int _armor;
         private int _speed;
-        private int _damage;
+        private int _highEndDam;
+        private int _lowEndDam;
         private int _dodge;
         private int _exp;
         private int _worth;
@@ -27,17 +28,19 @@ namespace Hero_Wave_Survival.Monsters
         public int Health { get { return _health; } set { _health = value; } }
         public int Armor { get { return _armor; } set { _armor = value; } }
         public int Speed { get { return _speed; } set { _speed = value; } }
-        public int Damage { get { return _damage; } set { _damage = value; } }
         public int Dodge { get { return _dodge; } set { _dodge = value; } }
         public int EXP { get { return _exp; } set { _exp = value; } }
         public int Worth { get { return _worth; } set { _worth = value; } }
         public int Accuracy { get { return _acc; } set { _acc = value; } }
+        public int HighEndDamage { get { return _highEndDam; } set { _highEndDam = value; } }
+        public int LowEndDamage { get { return _lowEndDam; } set { _lowEndDam = value; } }
 
         public UserControl Avatar { get { return _avatar;} set { _avatar = value; } }
 
         public bool isAlive { get { return _isAlive; } }
 
         Random chanceToHit = new Random();
+        Random damageCalc = new Random();
 
         public BaseMonster()
         {
@@ -46,9 +49,12 @@ namespace Hero_Wave_Survival.Monsters
 
         public bool Attack(IHero hero)
         {
-            if (chanceToHit.Next(0, _acc) > hero.Dodge)
+            int damage = damageCalc.Next(_lowEndDam, _highEndDam);
+            int hitChance = (chanceToHit.Next(1, 20) + _acc);
+
+            if (hitChance > hero.Dodge)
             {
-                hero.TakeDamage(_damage);
+                hero.TakeDamage(damage);
                 return true;
             }
             else
@@ -70,9 +76,9 @@ namespace Hero_Wave_Survival.Monsters
             }
         }
 
-        public void Dispose()
+        public virtual void Kill()
         {
-            //Free resources
+            
         }
     }
 }

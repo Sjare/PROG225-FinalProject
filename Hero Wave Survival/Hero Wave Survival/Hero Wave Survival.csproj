@@ -60,6 +60,14 @@
     <Compile Include="GameScreens\HeroPicker.Designer.cs">
       <DependentUpon>HeroPicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameScreens\StoreFront.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameScreens\StoreFront.Designer.cs">
+      <DependentUpon>StoreFront.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Items\HealthPotion.cs" />
+    <Compile Include="Items\IItem.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>

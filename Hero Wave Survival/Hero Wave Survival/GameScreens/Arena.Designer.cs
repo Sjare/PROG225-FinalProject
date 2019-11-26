@@ -31,6 +31,9 @@
             this.tbArena = new System.Windows.Forms.TableLayoutPanel();
             this.tbEnem = new System.Windows.Forms.TableLayoutPanel();
             this.btnStart = new System.Windows.Forms.Button();
+            this.btnNextWave = new System.Windows.Forms.Button();
+            this.btnStore = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.tbArena.SuspendLayout();
             this.tbEnem.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +58,9 @@
             this.tbEnem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbEnem.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tbEnem.Controls.Add(this.btnStart, 1, 0);
+            this.tbEnem.Controls.Add(this.btnNextWave, 0, 0);
+            this.tbEnem.Controls.Add(this.btnStore, 1, 1);
+            this.tbEnem.Controls.Add(this.btnClose, 2, 0);
             this.tbEnem.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbEnem.Location = new System.Drawing.Point(3, 3);
             this.tbEnem.Name = "tbEnem";
@@ -75,6 +81,42 @@
             this.btnStart.UseVisualStyleBackColor = true;
             this.btnStart.Click += new System.EventHandler(this.BtnStart_Click);
             // 
+            // btnNextWave
+            // 
+            this.btnNextWave.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnNextWave.Location = new System.Drawing.Point(3, 3);
+            this.btnNextWave.Name = "btnNextWave";
+            this.btnNextWave.Size = new System.Drawing.Size(278, 23);
+            this.btnNextWave.TabIndex = 1;
+            this.btnNextWave.Text = "Next Wave";
+            this.btnNextWave.UseVisualStyleBackColor = true;
+            this.btnNextWave.Visible = false;
+            this.btnNextWave.Click += new System.EventHandler(this.BtnNextWave_Click);
+            // 
+            // btnStore
+            // 
+            this.btnStore.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnStore.Location = new System.Drawing.Point(287, 161);
+            this.btnStore.Name = "btnStore";
+            this.btnStore.Size = new System.Drawing.Size(278, 23);
+            this.btnStore.TabIndex = 2;
+            this.btnStore.Text = "Go To Store";
+            this.btnStore.UseVisualStyleBackColor = true;
+            this.btnStore.Visible = false;
+            this.btnStore.Click += new System.EventHandler(this.BtnStore_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.btnClose.Location = new System.Drawing.Point(571, 3);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(278, 23);
+            this.btnClose.TabIndex = 3;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Visible = false;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
             // Arena
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -94,5 +136,8 @@
         private System.Windows.Forms.TableLayoutPanel tbArena;
         private System.Windows.Forms.Button btnStart;
         public System.Windows.Forms.TableLayoutPanel tbEnem;
+        public System.Windows.Forms.Button btnNextWave;
+        public System.Windows.Forms.Button btnStore;
+        public System.Windows.Forms.Button btnClose;
     }
 }

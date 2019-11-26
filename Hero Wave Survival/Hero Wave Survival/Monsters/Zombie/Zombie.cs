@@ -23,17 +23,19 @@ namespace Hero_Wave_Survival.Monsters.Zombie
         {
             Health = 30;
             Armor = 0;
-            Speed = _speedDiff.Next(3,7);
-            Damage = 25;
+            Speed = _speedDiff.Next(1,3);
+            HighEndDamage = 21;
+            LowEndDamage = 10;
             EXP = 1;
-            Dodge = 0;
+            Dodge = 4;
             Worth = 1;
-            Accuracy = 50; 
+            Accuracy = 0; 
 
             tmp = new ZAvatar(this.Health);
             tmp.Portait.Click += Portait_Click;
             tmp.Health.Click += Portait_Click;
 
+            Avatar = null;
             Avatar = tmp;
 
             attackTimer = new Timer();
@@ -58,6 +60,16 @@ namespace Hero_Wave_Survival.Monsters.Zombie
             hero.Attack(this);
             hero.updateAvatar();
             tmp.updateHealth(Health);
+        }
+
+        public override void Kill()
+        {
+            attackTimer.Stop();
+        }
+
+        ~Zombie()
+        {
+            attackTimer.Stop();
         }
     }
 }

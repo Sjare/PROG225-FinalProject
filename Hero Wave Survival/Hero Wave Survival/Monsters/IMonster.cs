@@ -14,7 +14,8 @@ namespace Hero_Wave_Survival.Monsters
         int Health { get; set; }
         int Armor { get; set; }
         int Speed { get; set; }
-        int Damage { get; set; }
+        int HighEndDamage { get; set; }
+        int LowEndDamage { get; set; }
         int Dodge { get; set; }
         int EXP { get; set; }
         int Worth { get; set; }
@@ -26,5 +27,6 @@ namespace Hero_Wave_Survival.Monsters
 
         void TakeDamage(int damage);
         bool Attack(IHero hero);
+        void Kill();
     }
 }

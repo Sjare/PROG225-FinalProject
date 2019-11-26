@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Hero_Wave_Survival.Items;
 using Hero_Wave_Survival.Monsters;
 
 namespace Hero_Wave_Survival.Heroes
@@ -12,13 +13,16 @@ namespace Hero_Wave_Survival.Heroes
     {
         private UserControl _avatar;
 
+        private List<IItem> _backpack;
+
         private string _name;
 
         private int _health;
         private int _level;
         private int _armor;
         private int _speed;
-        private int _damage;
+        private int _highEndDam;
+        private int _lowEndDam;
         private int _dodge;
         private int _gold;
         private int _exp;
@@ -33,19 +37,23 @@ namespace Hero_Wave_Survival.Heroes
         public int Level { get { return _level; } set { _level = value; } }
         public int Armor { get { return _armor; } set { _armor = value; } }
         public int Speed { get { return _speed; } set { _speed = value; } }
-        public int Damage { get { return _damage; } set { _damage = value; } }
         public int Dodge { get { return _dodge; } set { _dodge = value; } }
         public int Gold { get { return _gold; } set { _gold = value; } }
         public int EXP { get { return _exp; }set { _exp = value; } }
         public int Accuracy { get { return _acc; } set { _acc = value; } }
+        public int HighEndDamage { get { return _highEndDam; } set { _highEndDam = value; } }
+        public int LowEndDamage { get { return _lowEndDam; } set { _lowEndDam = value; } }
 
         public bool isAlive { get { return _isAlive; }}
 
         public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
 
+        public List<IItem> Backpack { get { return _backpack; } }
+
         private Timer attackTimer;
 
         Random chanceToHit = new Random();
+        Random damageCalc = new Random();
 
         public BaseHero()
         {
@@ -68,15 +76,19 @@ namespace Hero_Wave_Survival.Heroes
 
         public bool Attack(IMonster monster)
         {
+            int damage = damageCalc.Next(_lowEndDam, _highEndDam);
+            int hitChance = (chanceToHit.Next(1, 20) + _acc);
+
             if (_canAttack)
             {
-                if (chanceToHit.Next(1, _acc) > monster.Dodge)
+                if (hitChance > monster.Dodge)
                 {
-                    monster.TakeDamage(_damage);
+                    monster.TakeDamage(damage);
                     _canAttack = false;
 
                     if (!monster.isAlive)
                     {
+                        monster.Kill();
                         _exp += monster.EXP;
                         _gold += monster.Worth;
 
@@ -115,7 +127,8 @@ namespace Hero_Wave_Survival.Heroes
         public void LevelUp()
         {
             _health += 5;
-            _damage += 1;
+            _highEndDam += 1;
+            _lowEndDam += 1;
             _dodge += 1;
             _speed += 1;
             _exp = 0;
