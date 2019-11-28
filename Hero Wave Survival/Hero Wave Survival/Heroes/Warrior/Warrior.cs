@@ -36,7 +36,12 @@ namespace Hero_Wave_Survival.Heroes.Warrior
 
         private void BtnUseHP_Click(object sender, EventArgs e)
         {
-            Heal();
+            if(Health < 100)
+            {
+                Heal();
+            }
+
+            //TODO: Add error when hero is already full hp
         }
 
         public override void updateAvatar()

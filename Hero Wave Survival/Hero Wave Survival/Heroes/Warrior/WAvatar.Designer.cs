@@ -393,7 +393,6 @@
             this.btnUseHP.TabIndex = 2;
             this.btnUseHP.Text = "Use Health Potion";
             this.btnUseHP.UseVisualStyleBackColor = true;
-            this.btnUseHP.Click += new System.EventHandler(this.BtnUseHP_Click);
             // 
             // WAvatar
             // 
@@ -442,6 +441,6 @@
         private System.Windows.Forms.TableLayoutPanel tbBackpackContent;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblHPCount;
-        private System.Windows.Forms.Button btnUseHP;
+        public System.Windows.Forms.Button btnUseHP;
     }
 }
