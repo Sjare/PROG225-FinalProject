@@ -1,6 +1,7 @@
 ﻿using Hero_Wave_Survival.GameScreens;
 using Hero_Wave_Survival.Heroes;
 using Hero_Wave_Survival.Monsters;
+using Hero_Wave_Survival.Monsters.Skeleton;
 using Hero_Wave_Survival.Monsters.Zombie;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace Hero_Wave_Survival.Game_Controller
         private Timer stateChecker;
 
         private int _waveState = 1;
+        private int _killCount = 0;
 
         private bool _hasStarted = false;
 
@@ -49,8 +51,7 @@ namespace Hero_Wave_Survival.Game_Controller
                     if (!monsters[i].isAlive)
                     {
                         arena.tbEnem.Controls.Remove(monsters[i].Avatar);
-                        monsters[i] = null;
-                        monsters.Remove(monsters[i]);
+                        monsters.RemoveAt(i);
                     }
                 }
             }
@@ -106,20 +107,150 @@ namespace Hero_Wave_Survival.Game_Controller
                     }
                     break;
                 case 3:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    for(int i = 0; i < 1; i++)
+                    {
+                        monsters.Add(new Skeleton(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
                 case 4:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Skeleton(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
                 case 5:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
                 case 6:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
                 case 7:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
                 case 8:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
                 case 9:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
                 case 10:
+                    //increment my wave state
+                    _waveState++;
+
+                    //make my monsters
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Zombie(hero));
+                    }
+
+                    //add the monsters to the arena
+                    foreach (BaseMonster monster in monsters)
+                    {
+                        arena.tbEnem.Controls.Add(monster.Avatar);
+                        monster.Avatar.Dock = System.Windows.Forms.DockStyle.Fill;
+                    }
                     break;
             }
         }

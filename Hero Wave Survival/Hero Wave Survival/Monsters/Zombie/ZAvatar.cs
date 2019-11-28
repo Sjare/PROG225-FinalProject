@@ -27,5 +27,10 @@ namespace Hero_Wave_Survival.Monsters.Zombie
         {
             pbZombieHealth.Value = health;
         }
+
+        public void DeadAvatar()
+        {
+            pbZAvatar.Image = new Bitmap("CorpsePile.png");
+        }
     }
 }

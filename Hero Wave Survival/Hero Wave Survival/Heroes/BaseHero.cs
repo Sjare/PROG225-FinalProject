@@ -13,7 +13,7 @@ namespace Hero_Wave_Survival.Heroes
     {
         private UserControl _avatar;
 
-        private Stack<HealthPotion> _backpack = new Stack<HealthPotion>();
+        private Stack<IItem> _backpack = new Stack<IItem>();
 
         private string _name;
 
@@ -27,6 +27,7 @@ namespace Hero_Wave_Survival.Heroes
         private int _gold;
         private int _exp;
         private int _acc;
+        private int _maxHealth;
 
         private bool _canAttack = true;
         private bool _isAlive = true;
@@ -43,12 +44,18 @@ namespace Hero_Wave_Survival.Heroes
         public int Accuracy { get { return _acc; } set { _acc = value; } }
         public int HighEndDamage { get { return _highEndDam; } set { _highEndDam = value; } }
         public int LowEndDamage { get { return _lowEndDam; } set { _lowEndDam = value; } }
+        public int MaxHealth
+        {
+            get { return _maxHealth; }
+            set { _maxHealth = value; }
+        }
+
 
         public bool isAlive { get { return _isAlive; }}
 
         public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
 
-        public Stack<HealthPotion> Backpack { get { return _backpack; } }
+        public Stack<IItem> Backpack { get { return _backpack; } }
 
         private Timer attackTimer;
 
@@ -97,6 +104,7 @@ namespace Hero_Wave_Survival.Heroes
                         }
                     }
 
+                    updateAvatar();
                     return true;
                 }
                 else
@@ -121,12 +129,16 @@ namespace Hero_Wave_Survival.Heroes
                 _health = 0;
                 _isAlive = false;
             }
+
+            updateAvatar();
         }
 
         public void LevelUp()
         {
-            _health += 5;
+            _maxHealth += 5;
+            _health = _maxHealth;
             _highEndDam += 1;
+            _level++;
             _lowEndDam += 1;
             _dodge += 1;
             _speed += 1;
@@ -147,9 +159,16 @@ namespace Hero_Wave_Survival.Heroes
         {
             if(Backpack.Count != 0)
             {
-                HealthPotion buffer = Backpack.Pop();
+                HealthPotion buffer = (HealthPotion)Backpack.Pop();
 
                 _health += buffer.RestoreHP;
+
+                if(_health > _maxHealth)
+                {
+                    _health = _maxHealth;
+                }
+
+                updateAvatar();
             }
 
             //TODO: Come back and spit an error out if backpack is empty

@@ -13,7 +13,8 @@ namespace Hero_Wave_Survival.Heroes.Warrior
 
         public Warrior(string name)
         {
-            Health = 100;
+            MaxHealth = 100;
+            Health = MaxHealth;
             Armor = 10;
             Speed = 3;
             HighEndDamage = 26;

@@ -85,6 +85,13 @@
     </Compile>
     <Compile Include="Monsters\BaseMonster.cs" />
     <Compile Include="Monsters\IMonster.cs" />
+    <Compile Include="Monsters\Skeleton\SAvatar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Monsters\Skeleton\SAvatar.Designer.cs">
+      <DependentUpon>SAvatar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Monsters\Skeleton\Skeleton.cs" />
     <Compile Include="Monsters\Zombie\ZAvatar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -108,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monsters\Skeleton\SAvatar.resx">
+      <DependentUpon>SAvatar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Monsters\Zombie\ZAvatar.resx">
       <DependentUpon>ZAvatar.cs</DependentUpon>

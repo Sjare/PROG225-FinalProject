@@ -12,18 +12,15 @@ namespace Hero_Wave_Survival.Monsters.Zombie
     public class Zombie : BaseMonster
     {
         private Random _speedDiff = new Random();
-
         private BaseHero hero;
-
         private ZAvatar tmp;
-
         public Timer attackTimer;
 
         public Zombie(BaseHero Hero)
         {
             Health = 30;
             Armor = 0;
-            Speed = _speedDiff.Next(1,3);
+            Speed = _speedDiff.Next(2,5);
             HighEndDamage = 21;
             LowEndDamage = 10;
             EXP = 1;
@@ -51,7 +48,6 @@ namespace Hero_Wave_Survival.Monsters.Zombie
             if (Attack(hero))
             {
                 //TODO: Apply rot debuff to the hero
-                hero.updateAvatar();
             }
         }
 
@@ -65,6 +61,12 @@ namespace Hero_Wave_Survival.Monsters.Zombie
         public override void Kill()
         {
             attackTimer.Stop();
+            DeadAvatar();
+        }
+
+        public override void DeadAvatar()
+        {
+            tmp.DeadAvatar();
         }
 
         ~Zombie()

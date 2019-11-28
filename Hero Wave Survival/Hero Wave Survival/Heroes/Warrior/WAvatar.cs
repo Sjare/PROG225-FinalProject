@@ -13,7 +13,7 @@ namespace Hero_Wave_Survival.Heroes.Warrior
 {
     public partial class WAvatar : UserControl
     {
-        public WAvatar(string name, int hp, int level, int arm, int d, int s, int g, int exp, int acc,int dam, Stack<HealthPotion> items)
+        public WAvatar(string name, int hp, int level, int arm, int d, int s, int g, int exp, int acc,int dam, Stack<IItem> items)
         {
             InitializeComponent();
             lblAcc.Text = acc.ToString();
@@ -29,7 +29,7 @@ namespace Hero_Wave_Survival.Heroes.Warrior
             lblHPCount.Text = items.Count.ToString();
         }
 
-        public void updateAvatar(int hp, int level, int arm, int d, int s, int g, int exp, int acc, int dam, Stack<HealthPotion> items)
+        public void updateAvatar(int hp, int level, int arm, int d, int s, int g, int exp, int acc, int dam, Stack<IItem> items)
         {
             lblAcc.Text = acc.ToString();
             lblArmor.Text = arm.ToString();
