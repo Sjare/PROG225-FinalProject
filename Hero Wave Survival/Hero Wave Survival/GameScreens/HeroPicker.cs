@@ -17,9 +17,13 @@ namespace Hero_Wave_Survival.GameScreens
 {
     public partial class HeroPicker : Form
     {
-        public HeroPicker()
+        private MainMenu mw;
+
+        public HeroPicker(MainMenu MW)
         {
             InitializeComponent();
+
+            mw = MW;
         }
 
         private void btnWarrior_Click(object sender, EventArgs e)
@@ -28,7 +32,7 @@ namespace Hero_Wave_Survival.GameScreens
 
             Warrior warrior = new Warrior(nameInput);
 
-            Arena arena = new Arena(warrior);
+            Arena arena = new Arena(warrior,mw);
 
             arena.Show();
 

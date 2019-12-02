@@ -2,6 +2,7 @@
 using Hero_Wave_Survival.Heroes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Hero_Wave_Survival.Monsters.Zombie
         private Random _speedDiff = new Random();
         private BaseHero hero;
         private ZAvatar tmp;
+        private Debuff Rot;
         public Timer attackTimer;
 
         public Zombie(BaseHero Hero)
@@ -40,6 +42,10 @@ namespace Hero_Wave_Survival.Monsters.Zombie
             attackTimer.Enabled = true;
             attackTimer.Tick += AttackTimer_Tick;
 
+            Rot = new Debuff();
+            Rot.Stat = "Rot";
+            Rot.Value = 1;
+
             hero = Hero;
         }
 
@@ -47,26 +53,20 @@ namespace Hero_Wave_Survival.Monsters.Zombie
         {
             if (Attack(hero))
             {
-                //TODO: Apply rot debuff to the hero
+                hero.ApplyDebuff(Rot);
             }
         }
 
         private void Portait_Click(object sender, EventArgs e)
         {
             hero.Attack(this);
-            hero.updateAvatar();
             tmp.updateHealth(Health);
         }
 
         public override void Kill()
         {
             attackTimer.Stop();
-            DeadAvatar();
-        }
-
-        public override void DeadAvatar()
-        {
-            tmp.DeadAvatar();
+            tmp.Portait.Image = new Bitmap("CorpsePile.png");
         }
 
         ~Zombie()

@@ -1,6 +1,7 @@
 ﻿using Hero_Wave_Survival.Heroes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace Hero_Wave_Survival.Monsters.Skeleton
         private SAvatar tmp;
         private Timer attackTimer;
         private Random _speedDiff = new Random();
+        private Debuff BoneDust;
 
         public Skeleton(BaseHero hero)
         {
@@ -35,6 +37,10 @@ namespace Hero_Wave_Survival.Monsters.Skeleton
 
             Avatar = tmp;
 
+            BoneDust = new Debuff();
+            BoneDust.Stat = "BoneDust";
+            BoneDust.Value = 1;
+
             attackTimer = new Timer();
             attackTimer.Interval = Speed * 1000;
             attackTimer.Enabled = true;
@@ -45,7 +51,7 @@ namespace Hero_Wave_Survival.Monsters.Skeleton
         {
             if (Attack(hero))
             {
-                //TODO: come and think of debuff for a skeleton to apply
+                hero.ApplyDebuff(BoneDust);
             }
         }
 
@@ -58,6 +64,7 @@ namespace Hero_Wave_Survival.Monsters.Skeleton
         public override void Kill()
         {
             attackTimer.Stop();
+            tmp.Portrait.Image = new Bitmap("CorpsePile.png");
         }
     }
 }

@@ -15,15 +15,18 @@ namespace Hero_Wave_Survival.Heroes.Warrior
         {
             MaxHealth = 100;
             Health = MaxHealth;
-            Armor = 10;
+            MaxArmor = 10;
+            Armor = MaxArmor;
             Speed = 3;
             HighEndDamage = 26;
             LowEndDamage = 15;
             EXP = 0;
-            Dodge = 5;
+            MaxDodge = 5;
+            Dodge = MaxDodge;
             Name = name;
             Gold = 0;
-            Accuracy = 1;
+            MaxAcc = 1;
+            Accuracy = MaxAcc;
 
             Backpack.Push(new HealthPotion());
 

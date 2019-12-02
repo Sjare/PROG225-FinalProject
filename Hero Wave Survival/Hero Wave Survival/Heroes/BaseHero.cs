@@ -12,11 +12,9 @@ namespace Hero_Wave_Survival.Heroes
     public class BaseHero : IHero
     {
         private UserControl _avatar;
-
         private Stack<IItem> _backpack = new Stack<IItem>();
-
+        private List<Debuff> debuffs = new List<Debuff>();
         private string _name;
-
         private int _health;
         private int _level;
         private int _armor;
@@ -28,19 +26,38 @@ namespace Hero_Wave_Survival.Heroes
         private int _exp;
         private int _acc;
         private int _maxHealth;
-
+        private int _maxArmor;
+        private int _maxDodge;
+        private int _maxAcc;
         private bool _canAttack = true;
         private bool _isAlive = true;
 
         public string Name { get { return _name; } set { _name = value; } }
 
-        public int Health { get { return _health; } set { _health = value; } }
+        public int Health
+        {
+            get
+            {
+                return _health;
+            }
+            set { _health = value; }
+        }
         public int Level { get { return _level; } set { _level = value; } }
-        public int Armor { get { return _armor; } set { _armor = value; } }
+        public int Armor
+        {
+            get
+            {
+                return _armor;
+            }
+            set
+            {
+                _armor = value;
+            }
+        }
         public int Speed { get { return _speed; } set { _speed = value; } }
         public int Dodge { get { return _dodge; } set { _dodge = value; } }
         public int Gold { get { return _gold; } set { _gold = value; } }
-        public int EXP { get { return _exp; }set { _exp = value; } }
+        public int EXP { get { return _exp; } set { _exp = value; } }
         public int Accuracy { get { return _acc; } set { _acc = value; } }
         public int HighEndDamage { get { return _highEndDam; } set { _highEndDam = value; } }
         public int LowEndDamage { get { return _lowEndDam; } set { _lowEndDam = value; } }
@@ -49,15 +66,17 @@ namespace Hero_Wave_Survival.Heroes
             get { return _maxHealth; }
             set { _maxHealth = value; }
         }
-
-
-        public bool isAlive { get { return _isAlive; }}
+        public int MaxArmor { get => _maxArmor; set => _maxArmor = value; }
+        public int MaxDodge { get => _maxDodge; set => _maxDodge = value; }
+        public int MaxAcc { get => _maxAcc; set => _maxAcc = value; }
+        public bool isAlive { get { return _isAlive; } }
 
         public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
 
         public Stack<IItem> Backpack { get { return _backpack; } }
 
         private Timer attackTimer;
+        private Timer checkDebuffs;
 
         Random chanceToHit = new Random();
         Random damageCalc = new Random();
@@ -78,6 +97,16 @@ namespace Hero_Wave_Survival.Heroes
             attackTimer.Interval = _speed * 1000; //turns speed into seconds for timer
             attackTimer.Enabled = true;
             attackTimer.Tick += AttackTimer_Tick;
+
+            checkDebuffs = new Timer();
+            checkDebuffs.Interval = 1;
+            checkDebuffs.Enabled = true;
+            checkDebuffs.Tick += CheckDebuffs_Tick;
+        }
+
+        private void CheckDebuffs_Tick(object sender, EventArgs e)
+        {
+            CheckDebuffs();
         }
 
         public bool Attack(IMonster monster)
@@ -124,10 +153,11 @@ namespace Hero_Wave_Survival.Heroes
 
             _health -= trueDamage;
 
-            if(_health <= 0)
+            if (_health <= 0)
             {
                 _health = 0;
                 _isAlive = false;
+
             }
 
             updateAvatar();
@@ -157,13 +187,13 @@ namespace Hero_Wave_Survival.Heroes
 
         public void Heal()
         {
-            if(Backpack.Count != 0)
+            if (Backpack.Count != 0)
             {
                 HealthPotion buffer = (HealthPotion)Backpack.Pop();
 
                 _health += buffer.RestoreHP;
 
-                if(_health > _maxHealth)
+                if (_health > _maxHealth)
                 {
                     _health = _maxHealth;
                 }
@@ -172,6 +202,85 @@ namespace Hero_Wave_Survival.Heroes
             }
 
             //TODO: Come back and spit an error out if backpack is empty
+        }
+
+        private void Kill()
+        {
+            attackTimer.Stop();
+        }
+
+        public void ApplyDebuff(Debuff debuff)
+        {
+            if(debuffs.Count != 0)
+            {
+                foreach(Debuff dbuff in debuffs)
+                {
+                    if (dbuff.Stat == debuff.Stat)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        debuffs.Add(debuff);
+
+                        if (debuff.Stat == "Rot")
+                        {
+                            _armor -= debuff.Value;
+                        }
+                        else if (debuff.Stat == "BoneDust")
+                        {
+                            _acc -= debuff.Value;
+                        }
+
+                        updateAvatar();
+                        return;
+                    }
+                }
+            }
+            else
+            {
+                debuffs.Add(debuff);
+
+                if (debuff.Stat == "Rot")
+                {
+                    _armor -= debuff.Value;
+                }
+                else if(debuff.Stat == "BoneDust")
+                {
+                    _acc -= debuff.Value;
+                }
+            }
+
+            updateAvatar();
+        }
+
+        private void CheckDebuffs() //remove debuff code
+        {
+            List<Debuff> tmp = new List<Debuff>();
+
+            foreach (Debuff debuff in debuffs)
+            {
+                //removing debuff
+                if (Math.Abs((debuff.timestamp - DateTime.Now).Seconds) >= 5)
+                {
+                    tmp.Add(debuff);
+
+                    if(debuff.Stat == "Rot")
+                    {
+                        _armor = _maxArmor;
+                    }
+                    else if(debuff.Stat == "BoneDust")
+                    {
+                        _acc = _maxAcc;
+                    }
+                }
+            }
+            foreach (Debuff debuff in tmp)
+            {
+                debuffs.Remove(debuff);
+            }
+
+            updateAvatar();
         }
     }
 }

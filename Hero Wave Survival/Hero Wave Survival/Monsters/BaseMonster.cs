@@ -80,10 +80,5 @@ namespace Hero_Wave_Survival.Monsters
         {
             
         }
-
-        public virtual void DeadAvatar()
-        {
-
-        }
     }
 }

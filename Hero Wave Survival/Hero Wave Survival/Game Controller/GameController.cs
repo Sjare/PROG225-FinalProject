@@ -16,20 +16,18 @@ namespace Hero_Wave_Survival.Game_Controller
     {
         private BaseHero hero;
         private Arena arena;
-
+        private MainMenu mw;
         private List<BaseMonster> monsters = new List<BaseMonster>();
-
         private Timer stateChecker;
-
         private int _waveState = 1;
         private int _killCount = 0;
-
         private bool _hasStarted = false;
 
-        public GameController(BaseHero Hero, Arena A)
+        public GameController(BaseHero Hero, Arena A, MainMenu main)
         {
             hero = Hero;
             arena = A;
+            mw = main;
             stateChecker = new Timer();
             stateChecker.Interval = 1;
             stateChecker.Enabled = true;
@@ -38,25 +36,43 @@ namespace Hero_Wave_Survival.Game_Controller
 
         private void StateChecker_Tick(object sender, EventArgs e)
         {
-            if (monsters.Count == 0 && _hasStarted)
+            if (hero.isAlive)
             {
-                arena.btnNextWave.Visible = true;
-                arena.btnClose.Visible = true;
-                arena.btnStore.Visible = true;
-            }
-            else
-            {
-                for (int i = 0; i < monsters.Count; i++)
+                //game continues as long as hero is alive
+
+                //checking if monsters are dead and removing them accordingly and displaying intermission
+                //buttons
+                if (monsters.Count == 0 && _hasStarted)
                 {
-                    if (!monsters[i].isAlive)
+                    arena.btnNextWave.Visible = true;
+                    arena.btnClose.Visible = true;
+                    arena.btnStore.Visible = true;
+                }
+                else
+                {
+                    for (int i = 0; i < monsters.Count; i++)
                     {
-                        arena.tbEnem.Controls.Remove(monsters[i].Avatar);
-                        monsters.RemoveAt(i);
+                        if (!monsters[i].isAlive)
+                        {
+                            arena.tbEnem.Controls.Remove(monsters[i].Avatar);
+                            monsters.RemoveAt(i);
+                        }
                     }
                 }
             }
+            else
+            {
+                //end game if hero dies
+                foreach(BaseMonster monster in monsters)
+                {
+                    monster.Kill();
+                }
+                stateChecker.Stop();
+                GameOver gameOver = new GameOver(hero.Name, _waveState, hero.isAlive,mw);
+                gameOver.Show();
+                arena.Close();
+            }
 
-            System.Threading.Thread.Sleep(1);
             GC.Collect();
         }
 
@@ -254,7 +270,5 @@ namespace Hero_Wave_Survival.Game_Controller
                     break;
             }
         }
-
-
     }
 }

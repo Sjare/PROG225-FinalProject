@@ -16,10 +16,10 @@ namespace Hero_Wave_Survival.GameScreens
     public partial class Arena : Form
     {
         BaseHero hero;
-
         GameController Controller;
+        MainMenu mw;
 
-        public Arena(BaseHero baseHero)
+        public Arena(BaseHero baseHero, MainMenu MW)
         {
             InitializeComponent();
 
@@ -29,9 +29,9 @@ namespace Hero_Wave_Survival.GameScreens
 
             hero.Avatar.Dock = DockStyle.Fill;
 
-            Controller = new GameController(hero,this);
+            Controller = new GameController(hero,this,mw);
 
-
+            mw = MW;
         }
 
         private void BtnStart_Click(object sender, EventArgs e)
@@ -54,7 +54,18 @@ namespace Hero_Wave_Survival.GameScreens
 
         private void BtnClose_Click(object sender, EventArgs e)
         {
+            if(MessageBox.Show("Are you sure you want to quit? Progress will not be saved!","Quit",
+            MessageBoxButtons.YesNo) == DialogResult.No)
+            {
+                //do nothing
+            }
+            else
+            {
+                mw.Show();
+                this.Close();
+            }
 
+            //TODO: maybe come back and implement a save feature
         }
     }
 }

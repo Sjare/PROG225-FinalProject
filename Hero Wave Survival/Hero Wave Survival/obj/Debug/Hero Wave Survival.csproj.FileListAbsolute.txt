@@ -14,3 +14,14 @@ F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\He
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csprojAssemblyReference.cache
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.StoreFront.resources
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Skeleton.SAvatar.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.dll
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.SqlServer.dll
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.dll
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.EF6.dll
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.Linq.dll
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.xml
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.SqlServer.xml
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.xml
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.dll.config
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.GameOver.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.CopyComplete
