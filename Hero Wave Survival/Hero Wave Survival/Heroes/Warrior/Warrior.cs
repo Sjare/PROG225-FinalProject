@@ -1,4 +1,5 @@
 ﻿using Hero_Wave_Survival.Items;
+using Hero_Wave_Survival.Monsters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace Hero_Wave_Survival.Heroes.Warrior
     class Warrior : BaseHero
     {
         WAvatar tmp;
+
+        private int _multiplier = 2;
 
         public Warrior(string name)
         {
@@ -51,6 +54,32 @@ namespace Hero_Wave_Survival.Heroes.Warrior
         public override void updateAvatar()
         {
             tmp.updateAvatar(Health, Level, Armor, Dodge, Speed, Gold, EXP, Accuracy, ((HighEndDamage + LowEndDamage) / 2), Backpack);
+        }
+
+        public override void specialAttack(IMonster monster)
+        {
+            //Heavy Strike - multiplies current attack role x2
+            if (CanUseSpecial)
+            {
+                int damage = (DamageCalc.Next(LowEndDamage, HighEndDamage)) * _multiplier;
+
+                monster.TakeDamage(damage);
+                CanUseSpecial = false;
+
+                if (!monster.isAlive)
+                {
+                    monster.Kill();
+                    Gold += monster.Worth;
+                    EXP += monster.EXP;
+
+                    if(EXP == 5)
+                    {
+                        LevelUp();
+                    }
+                }
+
+                updateAvatar();
+            }
         }
     }
 }

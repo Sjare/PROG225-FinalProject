@@ -23,16 +23,17 @@ namespace Hero_Wave_Survival.Monsters.Zombie
             Health = 30;
             Armor = 0;
             Speed = _speedDiff.Next(2,5);
-            HighEndDamage = 21;
-            LowEndDamage = 10;
+            HighEndDamage = 16;
+            LowEndDamage = 5;
             EXP = 1;
             Dodge = 4;
             Worth = 1;
             Accuracy = 0; 
 
             tmp = new ZAvatar(this.Health);
-            tmp.Portait.Click += Portait_Click;
-            tmp.Health.Click += Portait_Click;
+
+            tmp.Portait.MouseClick += Portait_MouseClick;
+            tmp.Health.MouseClick += Portait_MouseClick;
 
             Avatar = null;
             Avatar = tmp;
@@ -41,26 +42,32 @@ namespace Hero_Wave_Survival.Monsters.Zombie
             attackTimer.Interval = Speed * 1000;
             attackTimer.Enabled = true;
             attackTimer.Tick += AttackTimer_Tick;
-
-            Rot = new Debuff();
-            Rot.Stat = "Rot";
-            Rot.Value = 1;
-
             hero = Hero;
+        }
+
+        private void Portait_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                hero.specialAttack(this);
+                tmp.updateHealth(Health);
+            }
+            else if (e.Button == MouseButtons.Left)
+            {
+                hero.Attack(this);
+                tmp.updateHealth(Health);
+            }
         }
 
         private void AttackTimer_Tick(object sender, EventArgs e)
         {
             if (Attack(hero))
             {
+                Rot = new Debuff();
+                Rot.Stat = "Rot";
+                Rot.Value = 1;
                 hero.ApplyDebuff(Rot);
             }
-        }
-
-        private void Portait_Click(object sender, EventArgs e)
-        {
-            hero.Attack(this);
-            tmp.updateHealth(Health);
         }
 
         public override void Kill()

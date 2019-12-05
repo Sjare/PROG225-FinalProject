@@ -1,6 +1,7 @@
 ﻿using Hero_Wave_Survival.GameScreens;
 using Hero_Wave_Survival.Heroes;
 using Hero_Wave_Survival.Monsters;
+using Hero_Wave_Survival.Monsters.Ghoul;
 using Hero_Wave_Survival.Monsters.Skeleton;
 using Hero_Wave_Survival.Monsters.Zombie;
 using System;
@@ -20,7 +21,7 @@ namespace Hero_Wave_Survival.Game_Controller
         private List<BaseMonster> monsters = new List<BaseMonster>();
         private Timer stateChecker;
         private int _waveState = 1;
-        private int _killCount = 0;
+        private int _deadMonsters = 0;
         private bool _hasStarted = false;
 
         public GameController(BaseHero Hero, Arena A, MainMenu main)
@@ -52,10 +53,17 @@ namespace Hero_Wave_Survival.Game_Controller
                 {
                     for (int i = 0; i < monsters.Count; i++)
                     {
-                        if (!monsters[i].isAlive)
+                        if (!monsters[i].isAlive && !monsters[i].HasBeenCounted)
+                        {
+                            _deadMonsters++;
+                            monsters[i].HasBeenCounted = true;
+                        }
+
+                        if(_deadMonsters == monsters.Count)
                         {
                             arena.tbEnem.Controls.Remove(monsters[i].Avatar);
                             monsters.RemoveAt(i);
+                            _deadMonsters--;
                         }
                     }
                 }
@@ -79,6 +87,7 @@ namespace Hero_Wave_Survival.Game_Controller
         public void WaveSpawner()
         {
             _hasStarted = true;
+            _deadMonsters = 0;
 
             arena.btnNextWave.Visible = false;
             arena.btnClose.Visible = false;
@@ -171,9 +180,14 @@ namespace Hero_Wave_Survival.Game_Controller
                     _waveState++;
 
                     //make my monsters
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         monsters.Add(new Zombie(hero));
+                    }
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Skeleton(hero));
                     }
 
                     //add the monsters to the arena
@@ -188,9 +202,19 @@ namespace Hero_Wave_Survival.Game_Controller
                     _waveState++;
 
                     //make my monsters
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 4; i++)
                     {
                         monsters.Add(new Zombie(hero));
+                    }
+
+                    for (int i = 0; i < 1; i++)
+                    {
+                        monsters.Add(new Skeleton(hero));
+                    }
+
+                    for (int i = 0; i < 1; i++)
+                    {
+                        monsters.Add(new Ghoul(hero));
                     }
 
                     //add the monsters to the arena
@@ -205,9 +229,19 @@ namespace Hero_Wave_Survival.Game_Controller
                     _waveState++;
 
                     //make my monsters
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 3; i++)
                     {
                         monsters.Add(new Zombie(hero));
+                    }
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Skeleton(hero));
+                    }
+
+                    for (int i = 0; i < 1; i++)
+                    {
+                        monsters.Add(new Ghoul(hero));
                     }
 
                     //add the monsters to the arena

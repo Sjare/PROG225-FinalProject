@@ -34,6 +34,7 @@ namespace Hero_Wave_Survival.Monsters
         public int Accuracy { get { return _acc; } set { _acc = value; } }
         public int HighEndDamage { get { return _highEndDam; } set { _highEndDam = value; } }
         public int LowEndDamage { get { return _lowEndDam; } set { _lowEndDam = value; } }
+        public bool HasBeenCounted { get; set; }
 
         public UserControl Avatar { get { return _avatar;} set { _avatar = value; } }
 

@@ -11,13 +11,14 @@ namespace Hero_Wave_Survival.Database
 {
     public class DBInterface
     {
+        //private variables
         private string _dbName = "HighScores.sqlite";
         private string _connString = "Data source=HighScores.sqlite;Version=3";
         private string _query;
 
-
-        SQLiteConnection conn;
-        SQLiteCommand cmd;
+        //private objects
+        private SQLiteConnection conn;
+        private SQLiteCommand cmd;
 
         public DBInterface()
         {

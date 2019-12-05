@@ -12,7 +12,7 @@ namespace Hero_Wave_Survival.Items
         private int _price = 1;
         private int _hpRestore = 50;
 
-        private string _desc = "A vial filled with restorative wates. Will heal the hero upon use";
+        private string _desc = "A vial filled with restorative waters. Will heal 50 hit points to the hero upon use";
 
         public int Uses { get { return _uses; } }
         public int Price { get { return _price; } }

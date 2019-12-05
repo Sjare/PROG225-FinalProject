@@ -38,5 +38,11 @@ namespace Hero_Wave_Survival.GameScreens
 
             this.Close();
         }
+
+        private void BtnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            mw.Show();
+        }
     }
 }

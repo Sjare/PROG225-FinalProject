@@ -31,29 +31,12 @@ namespace Hero_Wave_Survival.Heroes
         private int _maxAcc;
         private bool _canAttack = true;
         private bool _isAlive = true;
+        private bool _canUseSpecial = true;
 
         public string Name { get { return _name; } set { _name = value; } }
-
-        public int Health
-        {
-            get
-            {
-                return _health;
-            }
-            set { _health = value; }
-        }
+        public int Health { get => _health; set => _health = value; }
         public int Level { get { return _level; } set { _level = value; } }
-        public int Armor
-        {
-            get
-            {
-                return _armor;
-            }
-            set
-            {
-                _armor = value;
-            }
-        }
+        public int Armor { get => _armor; set => _armor = value; }
         public int Speed { get { return _speed; } set { _speed = value; } }
         public int Dodge { get { return _dodge; } set { _dodge = value; } }
         public int Gold { get { return _gold; } set { _gold = value; } }
@@ -61,22 +44,24 @@ namespace Hero_Wave_Survival.Heroes
         public int Accuracy { get { return _acc; } set { _acc = value; } }
         public int HighEndDamage { get { return _highEndDam; } set { _highEndDam = value; } }
         public int LowEndDamage { get { return _lowEndDam; } set { _lowEndDam = value; } }
-        public int MaxHealth
-        {
-            get { return _maxHealth; }
-            set { _maxHealth = value; }
-        }
+        public int MaxHealth { get => _maxHealth; set => _maxHealth = value; }
         public int MaxArmor { get => _maxArmor; set => _maxArmor = value; }
         public int MaxDodge { get => _maxDodge; set => _maxDodge = value; }
         public int MaxAcc { get => _maxAcc; set => _maxAcc = value; }
         public bool isAlive { get { return _isAlive; } }
+        public bool CanUseSpecial
+        {
+            get { return _canUseSpecial; }
+            set { _canUseSpecial = value; }
+        }
+        public Random DamageCalc { get => damageCalc; }
 
         public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
-
         public Stack<IItem> Backpack { get { return _backpack; } }
 
         private Timer attackTimer;
         private Timer checkDebuffs;
+        private Timer specialCooldown;
 
         Random chanceToHit = new Random();
         Random damageCalc = new Random();
@@ -84,11 +69,6 @@ namespace Hero_Wave_Survival.Heroes
         public BaseHero()
         {
 
-        }
-
-        private void AttackTimer_Tick(object sender, EventArgs e)
-        {
-            _canAttack = true;
         }
 
         protected void setTimer()
@@ -102,11 +82,24 @@ namespace Hero_Wave_Survival.Heroes
             checkDebuffs.Interval = 1;
             checkDebuffs.Enabled = true;
             checkDebuffs.Tick += CheckDebuffs_Tick;
+
+            specialCooldown = new Timer();
+            specialCooldown.Interval = 3000;
+            specialCooldown.Enabled = true;
+            specialCooldown.Tick += SpecialCooldown_Tick;
         }
 
+        private void SpecialCooldown_Tick(object sender, EventArgs e)
+        {
+            _canUseSpecial = true;
+        }
         private void CheckDebuffs_Tick(object sender, EventArgs e)
         {
             CheckDebuffs();
+        }
+        private void AttackTimer_Tick(object sender, EventArgs e)
+        {
+            _canAttack = true;
         }
 
         public bool Attack(IMonster monster)
@@ -177,12 +170,12 @@ namespace Hero_Wave_Survival.Heroes
 
         public virtual void updateAvatar()
         {
-            //overridden later
+            //overridden by hero classes
         }
 
-        public virtual void specialAttack()
+        public virtual void specialAttack(IMonster monster)
         {
-            //overridden later
+            //overridden by hero classes
         }
 
         public void Heal()
@@ -209,31 +202,31 @@ namespace Hero_Wave_Survival.Heroes
             attackTimer.Stop();
         }
 
-        public void ApplyDebuff(Debuff debuff)
+        public void ApplyDebuff(Debuff debuff) //applying my debuff when hit
         {
-            if(debuffs.Count != 0)
+            bool doesExist = false;
+
+            if(debuffs.Count > 0)
             {
                 foreach(Debuff dbuff in debuffs)
                 {
                     if (dbuff.Stat == debuff.Stat)
                     {
-                        return;
+                         doesExist = true;
                     }
-                    else
+                }
+
+                if (!doesExist)
+                {
+                    debuffs.Add(debuff);
+
+                    if (debuff.Stat == "Rot")
                     {
-                        debuffs.Add(debuff);
-
-                        if (debuff.Stat == "Rot")
-                        {
-                            _armor -= debuff.Value;
-                        }
-                        else if (debuff.Stat == "BoneDust")
-                        {
-                            _acc -= debuff.Value;
-                        }
-
-                        updateAvatar();
-                        return;
+                        _armor -= debuff.Value;
+                    }
+                    else if (debuff.Stat == "BoneDust")
+                    {
+                        _acc -= debuff.Value;
                     }
                 }
             }

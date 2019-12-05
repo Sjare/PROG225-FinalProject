@@ -25,3 +25,5 @@ F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\He
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.dll.config
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.GameOver.resources
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.CopyComplete
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.HighscoreScreen.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Ghoul.GAvatar.resources

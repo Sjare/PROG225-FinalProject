@@ -29,9 +29,9 @@ namespace Hero_Wave_Survival.GameScreens
 
             hero.Avatar.Dock = DockStyle.Fill;
 
-            Controller = new GameController(hero,this,mw);
-
             mw = MW;
+
+            Controller = new GameController(hero,this,mw);
         }
 
         private void BtnStart_Click(object sender, EventArgs e)

@@ -47,7 +47,7 @@ namespace Hero_Wave_Survival.GameScreens
                     _hero.updateAvatar();
 
                     lblGold.Text = _hero.Gold.ToString();
-                    lblStock.Text = healthPotions.Count.ToString();
+                    lblStock.Text = "Stock: " + healthPotions.Count.ToString();
                 }
             }
 

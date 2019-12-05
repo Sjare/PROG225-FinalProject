@@ -8,8 +8,11 @@ namespace Hero_Wave_Survival.Monsters
 {
     public class Debuff
     {
+        //private variables
         public string Stat;
         public int Value;
+
+        //private objects
         public DateTime timestamp;
 
         public Debuff()

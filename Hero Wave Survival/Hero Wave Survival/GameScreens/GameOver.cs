@@ -18,7 +18,6 @@ namespace Hero_Wave_Survival.GameScreens
         private int _waveCount;
         private bool _hasSubmitted = false;
 
-        private DBInterface dB = new DBInterface();
         private MainMenu mw;
 
         public GameOver(string hName, int wave, bool isPlayerAlive, MainMenu main)
@@ -27,6 +26,7 @@ namespace Hero_Wave_Survival.GameScreens
 
             _heroName = hName;
             mw = main;
+            _waveCount = wave;
 
             if (isPlayerAlive)
             {
@@ -46,7 +46,7 @@ namespace Hero_Wave_Survival.GameScreens
             {
                 string pName = Interaction.InputBox("Your Name", "Input Name");
 
-                dB.InsertScore(pName, _heroName, _waveCount);
+                mw.Database.InsertScore(pName, _heroName, _waveCount);
 
                 _hasSubmitted = true;
             }

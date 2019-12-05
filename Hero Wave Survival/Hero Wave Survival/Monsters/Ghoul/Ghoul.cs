@@ -1,47 +1,45 @@
 ﻿using Hero_Wave_Survival.Heroes;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Hero_Wave_Survival.Monsters.Skeleton
+namespace Hero_Wave_Survival.Monsters.Ghoul
 {
-    public class Skeleton : BaseMonster
+    public class Ghoul : BaseMonster
     {
-        //private objects
+        private GAvatar tmp;
         private BaseHero hero;
-        private SAvatar tmp;
-        private Timer attackTimer;
+        private Debuff _maim;
         private Random _speedDiff = new Random();
-        private Debuff BoneDust;
+        private Timer attackTimer;
 
-        public Skeleton(BaseHero hero)
+        public Ghoul(BaseHero Hero)
         {
-            this.hero = hero;
-
-            Health = 50;
+            Health = 80;
             Armor = 1;
-            Speed = _speedDiff.Next(1, 4);
-            HighEndDamage = 21;
+            Speed = _speedDiff.Next(4, 7);
+            HighEndDamage = 36;
             LowEndDamage = 10;
-            EXP = 1;
-            Dodge = 6;
-            Worth = 1;
-            Accuracy = 0;
+            EXP = 2;
+            Dodge = 4;
+            Worth = 2;
+            Accuracy = 1;
 
-            tmp = new SAvatar(Health);
+            tmp = new GAvatar(this.Health);
             tmp.Portrait.MouseClick += Portrait_MouseClick;
             tmp.Health.MouseClick += Portrait_MouseClick;
 
+            Avatar = null;
             Avatar = tmp;
 
             attackTimer = new Timer();
             attackTimer.Interval = Speed * 1000;
             attackTimer.Enabled = true;
             attackTimer.Tick += AttackTimer_Tick;
+            hero = Hero;
         }
 
         private void Portrait_MouseClick(object sender, MouseEventArgs e)
@@ -58,21 +56,21 @@ namespace Hero_Wave_Survival.Monsters.Skeleton
             }
         }
 
+        private void Portrait_Click(object sender, EventArgs e)
+        {
+            hero.Attack(this);
+            tmp.UpdateHealth(Health);
+        }
+
         private void AttackTimer_Tick(object sender, EventArgs e)
         {
             if (Attack(hero))
             {
-                BoneDust = new Debuff();
-                BoneDust.Stat = "BoneDust";
-                BoneDust.Value = 1;
-                hero.ApplyDebuff(BoneDust);
+                _maim = new Debuff();
+                _maim.Stat = "Maim";
+                _maim.Value = 2;
+                hero.ApplyDebuff(_maim);
             }
-        }
-
-        public override void Kill()
-        {
-            attackTimer.Stop();
-            tmp.Portrait.Image = new Bitmap("CorpsePile.png");
         }
     }
 }

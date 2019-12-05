@@ -61,6 +61,7 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "CLOSE";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // btnScores
             // 
@@ -72,6 +73,7 @@
             this.btnScores.TabIndex = 1;
             this.btnScores.Text = "SCORES";
             this.btnScores.UseVisualStyleBackColor = true;
+            this.btnScores.Click += new System.EventHandler(this.BtnScores_Click);
             // 
             // btnStart
             // 

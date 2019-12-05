@@ -86,6 +86,12 @@
     <Compile Include="GameScreens\HeroPicker.Designer.cs">
       <DependentUpon>HeroPicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="GameScreens\HighscoreScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GameScreens\HighscoreScreen.Designer.cs">
+      <DependentUpon>HighscoreScreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameScreens\StoreFront.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,13 @@
     </Compile>
     <Compile Include="Monsters\BaseMonster.cs" />
     <Compile Include="Monsters\Debuff.cs" />
+    <Compile Include="Monsters\Ghoul\GAvatar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Monsters\Ghoul\GAvatar.Designer.cs">
+      <DependentUpon>GAvatar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Monsters\Ghoul\Ghoul.cs" />
     <Compile Include="Monsters\IMonster.cs" />
     <Compile Include="Monsters\Skeleton\SAvatar.cs">
       <SubType>UserControl</SubType>
@@ -137,6 +150,9 @@
     <EmbeddedResource Include="GameScreens\HeroPicker.resx">
       <DependentUpon>HeroPicker.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GameScreens\HighscoreScreen.resx">
+      <DependentUpon>HighscoreScreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GameScreens\StoreFront.resx">
       <DependentUpon>StoreFront.cs</DependentUpon>
     </EmbeddedResource>
@@ -145,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GameScreens\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monsters\Ghoul\GAvatar.resx">
+      <DependentUpon>GAvatar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Monsters\Skeleton\SAvatar.resx">
       <DependentUpon>SAvatar.cs</DependentUpon>
