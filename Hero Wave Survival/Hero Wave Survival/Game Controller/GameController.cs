@@ -2,6 +2,7 @@
 using Hero_Wave_Survival.Heroes;
 using Hero_Wave_Survival.Monsters;
 using Hero_Wave_Survival.Monsters.Ghoul;
+using Hero_Wave_Survival.Monsters.Lich;
 using Hero_Wave_Survival.Monsters.Skeleton;
 using Hero_Wave_Survival.Monsters.Zombie;
 using System;
@@ -23,6 +24,7 @@ namespace Hero_Wave_Survival.Game_Controller
         private int _waveState = 1;
         private int _deadMonsters = 0;
         private bool _hasStarted = false;
+        private bool _gameOver = false;
 
         public GameController(BaseHero Hero, Arena A, MainMenu main)
         {
@@ -37,46 +39,64 @@ namespace Hero_Wave_Survival.Game_Controller
 
         private void StateChecker_Tick(object sender, EventArgs e)
         {
-            if (hero.isAlive)
+            if (!_gameOver)
             {
-                //game continues as long as hero is alive
-
-                //checking if monsters are dead and removing them accordingly and displaying intermission
-                //buttons
-                if (monsters.Count == 0 && _hasStarted)
+                if (hero.isAlive)
                 {
-                    arena.btnNextWave.Visible = true;
-                    arena.btnClose.Visible = true;
-                    arena.btnStore.Visible = true;
+                    //game continues as long as hero is alive
+
+                    //checking if monsters are dead and removing them accordingly and displaying intermission
+                    //buttons
+                    if (monsters.Count == 0 && _hasStarted)
+                    {
+                        if (_waveState <= 10)
+                        {
+                            arena.btnNextWave.Visible = true;
+                            arena.btnClose.Visible = true;
+                            arena.btnStore.Visible = true;
+                        }
+                        else
+                        {
+                            _gameOver = true;
+                            _waveState--;
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < monsters.Count; i++)
+                        {
+                            if (!monsters[i].isAlive && !monsters[i].HasBeenCounted)
+                            {
+                                _deadMonsters++;
+                                monsters[i].HasBeenCounted = true;
+                            }
+
+                            if (_deadMonsters == monsters.Count)
+                            {
+                                arena.tbEnem.Controls.Remove(monsters[i].Avatar);
+                                monsters.RemoveAt(i);
+                                _deadMonsters--;
+                            }
+                        }
+                    }
                 }
                 else
                 {
-                    for (int i = 0; i < monsters.Count; i++)
+                    //end game if hero dies
+                    foreach (BaseMonster monster in monsters)
                     {
-                        if (!monsters[i].isAlive && !monsters[i].HasBeenCounted)
-                        {
-                            _deadMonsters++;
-                            monsters[i].HasBeenCounted = true;
-                        }
-
-                        if(_deadMonsters == monsters.Count)
-                        {
-                            arena.tbEnem.Controls.Remove(monsters[i].Avatar);
-                            monsters.RemoveAt(i);
-                            _deadMonsters--;
-                        }
+                        monster.Kill();
                     }
+                    stateChecker.Stop();
+                    GameOver gameOver = new GameOver(hero.Name, _waveState, hero.isAlive, mw);
+                    gameOver.Show();
+                    arena.Close();
                 }
             }
             else
             {
-                //end game if hero dies
-                foreach(BaseMonster monster in monsters)
-                {
-                    monster.Kill();
-                }
                 stateChecker.Stop();
-                GameOver gameOver = new GameOver(hero.Name, _waveState, hero.isAlive,mw);
+                GameOver gameOver = new GameOver(hero.Name, _waveState, hero.isAlive, mw);
                 gameOver.Show();
                 arena.Close();
             }
@@ -256,9 +276,24 @@ namespace Hero_Wave_Survival.Game_Controller
                     _waveState++;
 
                     //make my monsters
-                    for (int i = 0; i < 2; i++)
+                    for (int i = 0; i < 1; i++)
                     {
                         monsters.Add(new Zombie(hero));
+                    }
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Skeleton(hero));
+                    }
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Ghoul(hero));
+                    }
+
+                    for(int i = 0; i < 1; i++)
+                    {
+                        monsters.Add(new Lich(hero));
                     }
 
                     //add the monsters to the arena
@@ -275,7 +310,17 @@ namespace Hero_Wave_Survival.Game_Controller
                     //make my monsters
                     for (int i = 0; i < 2; i++)
                     {
-                        monsters.Add(new Zombie(hero));
+                        monsters.Add(new Skeleton(hero));
+                    }
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Ghoul(hero));
+                    }
+
+                    for (int i = 0; i < 2; i++)
+                    {
+                        monsters.Add(new Lich(hero));
                     }
 
                     //add the monsters to the arena
@@ -286,13 +331,22 @@ namespace Hero_Wave_Survival.Game_Controller
                     }
                     break;
                 case 10:
-                    //increment my wave state
                     _waveState++;
 
                     //make my monsters
+                    for (int i = 0; i < 1; i++)
+                    {
+                        monsters.Add(new Skeleton(hero));
+                    }
+
                     for (int i = 0; i < 2; i++)
                     {
-                        monsters.Add(new Zombie(hero));
+                        monsters.Add(new Ghoul(hero));
+                    }
+
+                    for (int i = 0; i < 3; i++)
+                    {
+                        monsters.Add(new Lich(hero));
                     }
 
                     //add the monsters to the arena

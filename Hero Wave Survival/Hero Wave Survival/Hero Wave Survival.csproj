@@ -125,6 +125,13 @@
     </Compile>
     <Compile Include="Monsters\Ghoul\Ghoul.cs" />
     <Compile Include="Monsters\IMonster.cs" />
+    <Compile Include="Monsters\Lich\LAvatar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Monsters\Lich\LAvatar.Designer.cs">
+      <DependentUpon>LAvatar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Monsters\Lich\Lich.cs" />
     <Compile Include="Monsters\Skeleton\SAvatar.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -164,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Monsters\Ghoul\GAvatar.resx">
       <DependentUpon>GAvatar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Monsters\Lich\LAvatar.resx">
+      <DependentUpon>LAvatar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Monsters\Skeleton\SAvatar.resx">
       <DependentUpon>SAvatar.cs</DependentUpon>

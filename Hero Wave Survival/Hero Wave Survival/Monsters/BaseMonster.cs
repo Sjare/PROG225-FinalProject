@@ -51,7 +51,7 @@ namespace Hero_Wave_Survival.Monsters
         public bool Attack(IHero hero)
         {
             int damage = damageCalc.Next(_lowEndDam, _highEndDam);
-            int hitChance = (chanceToHit.Next(1, 20) + _acc);
+            int hitChance = (chanceToHit.Next(1, 21) + _acc);
 
             if (hitChance > hero.Dodge)
             {

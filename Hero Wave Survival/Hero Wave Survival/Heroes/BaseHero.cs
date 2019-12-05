@@ -29,6 +29,7 @@ namespace Hero_Wave_Survival.Heroes
         private int _maxArmor;
         private int _maxDodge;
         private int _maxAcc;
+        private int _speedBuffer;
         private bool _canAttack = true;
         private bool _isAlive = true;
         private bool _canUseSpecial = true;
@@ -93,10 +94,12 @@ namespace Hero_Wave_Survival.Heroes
         {
             _canUseSpecial = true;
         }
+
         private void CheckDebuffs_Tick(object sender, EventArgs e)
         {
             CheckDebuffs();
         }
+
         private void AttackTimer_Tick(object sender, EventArgs e)
         {
             _canAttack = true;
@@ -105,7 +108,7 @@ namespace Hero_Wave_Survival.Heroes
         public bool Attack(IMonster monster)
         {
             int damage = damageCalc.Next(_lowEndDam, _highEndDam);
-            int hitChance = (chanceToHit.Next(1, 20) + _acc);
+            int hitChance = (chanceToHit.Next(1, 21) + _acc);
 
             if (_canAttack)
             {
@@ -228,6 +231,12 @@ namespace Hero_Wave_Survival.Heroes
                     {
                         _acc -= debuff.Value;
                     }
+                    else if(debuff.Stat == "Chill")
+                    {
+                        _speedBuffer = _speed;
+                        _speed -= debuff.Value;
+                        attackTimer.Interval = _speed * 1000;
+                    }
                 }
             }
             else
@@ -265,6 +274,12 @@ namespace Hero_Wave_Survival.Heroes
                     else if(debuff.Stat == "BoneDust")
                     {
                         _acc = _maxAcc;
+                    }
+                    else if(debuff.Stat == "Chill")
+                    {
+                        _speed = _speedBuffer;
+
+                        attackTimer.Interval = _speed * 1000;
                     }
                 }
             }
