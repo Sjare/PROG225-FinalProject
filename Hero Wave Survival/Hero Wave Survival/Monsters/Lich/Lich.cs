@@ -73,6 +73,8 @@ namespace Hero_Wave_Survival.Monsters.Lich
         {
             attackTimer.Stop();
             tmp.Portrait.Image = new Bitmap("CorpsePile.png");
+            System.Media.SoundPlayer deathSound = new System.Media.SoundPlayer("LichDeath.wav");
+            deathSound.Play();
         }
     }
 }

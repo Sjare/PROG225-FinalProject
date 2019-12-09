@@ -73,6 +73,8 @@ namespace Hero_Wave_Survival.Monsters.Skeleton
         {
             attackTimer.Stop();
             tmp.Portrait.Image = new Bitmap("CorpsePile.png");
+            System.Media.SoundPlayer deathSound = new System.Media.SoundPlayer("SkeletonDeath.wav");
+            deathSound.Play();
         }
     }
 }

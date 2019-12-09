@@ -63,6 +63,9 @@ namespace Hero_Wave_Survival.Heroes.Warrior
             {
                 int damage = (DamageCalc.Next(LowEndDamage, HighEndDamage)) * _multiplier;
 
+                System.Media.SoundPlayer heavyStrike = new System.Media.SoundPlayer("HeavyStrike.wav");
+                heavyStrike.Play();
+
                 monster.TakeDamage(damage);
                 CanUseSpecial = false;
 

@@ -1,6 +1,7 @@
 ﻿using Hero_Wave_Survival.Heroes;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,7 @@ namespace Hero_Wave_Survival.Monsters.Ghoul
 
         public Ghoul(BaseHero Hero)
         {
-            Health = 80;
+            Health = 50;
             Armor = 1;
             Speed = _speedDiff.Next(4, 7);
             HighEndDamage = 36;
@@ -71,6 +72,14 @@ namespace Hero_Wave_Survival.Monsters.Ghoul
                 _maim.Value = 2;
                 hero.ApplyDebuff(_maim);
             }
+        }
+
+        public override void Kill()
+        {
+            attackTimer.Stop();
+            tmp.Portrait.Image = new Bitmap("CorpsePile.png");
+            System.Media.SoundPlayer deathSound = new System.Media.SoundPlayer("GhoulDeath.wav");
+            deathSound.Play();
         }
     }
 }

@@ -8,7 +8,6 @@ F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\He
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Zombie.ZAvatar.resources
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Properties.Resources.resources
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.GenerateResource.cache
-F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.CoreCompileInputs.cache
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.exe
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.pdb
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csprojAssemblyReference.cache
@@ -27,3 +26,33 @@ F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\He
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.CopyComplete
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.HighscoreScreen.resources
 F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Ghoul.GAvatar.resources
+F:\PROG 225 - Derek Maki - Intermediate Programming\Assignments\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Lich.LAvatar.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\Hero Wave Survival.exe.config
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\Hero Wave Survival.exe
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\Hero Wave Survival.pdb
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.dll
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.dll
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.EF6.dll
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.Linq.dll
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.xml
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.xml
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csprojAssemblyReference.cache
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.Arena.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.GameOver.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.HeroPicker.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.HighscoreScreen.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.GameScreens.StoreFront.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Heroes.Warrior.WAvatar.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.MainMenu.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Ghoul.GAvatar.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Lich.LAvatar.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Skeleton.SAvatar.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Monsters.Zombie.ZAvatar.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero_Wave_Survival.Properties.Resources.resources
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.GenerateResource.cache
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.csproj.CopyComplete
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.exe
+C:\Users\brandon.greene\Desktop\Final Project\Hero Wave Survival\Hero Wave Survival\obj\Debug\Hero Wave Survival.pdb

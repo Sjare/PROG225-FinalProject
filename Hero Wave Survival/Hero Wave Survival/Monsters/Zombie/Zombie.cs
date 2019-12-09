@@ -74,11 +74,8 @@ namespace Hero_Wave_Survival.Monsters.Zombie
         {
             attackTimer.Stop();
             tmp.Portait.Image = new Bitmap("CorpsePile.png");
-        }
-
-        ~Zombie()
-        {
-            attackTimer.Stop();
+            System.Media.SoundPlayer deathSound = new System.Media.SoundPlayer("ZombieDeath.wav");
+            deathSound.Play();
         }
     }
 }

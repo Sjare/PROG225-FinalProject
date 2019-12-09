@@ -55,8 +55,8 @@ namespace Hero_Wave_Survival.Heroes
             get { return _canUseSpecial; }
             set { _canUseSpecial = value; }
         }
-        public Random DamageCalc { get => damageCalc; }
 
+        public Random DamageCalc { get => damageCalc; }
         public UserControl Avatar { get { return _avatar; } set { _avatar = value; } }
         public Stack<IItem> Backpack { get { return _backpack; } }
 
@@ -114,6 +114,8 @@ namespace Hero_Wave_Survival.Heroes
             {
                 if (hitChance > monster.Dodge)
                 {
+                    System.Media.SoundPlayer hitSound = new System.Media.SoundPlayer("AttackHit.wav");
+                    hitSound.Play();
                     monster.TakeDamage(damage);
                     _canAttack = false;
 
@@ -193,6 +195,9 @@ namespace Hero_Wave_Survival.Heroes
                 {
                     _health = _maxHealth;
                 }
+
+                System.Media.SoundPlayer healingPot = new System.Media.SoundPlayer("HealingPot.wav");
+                healingPot.Play();
 
                 updateAvatar();
             }
