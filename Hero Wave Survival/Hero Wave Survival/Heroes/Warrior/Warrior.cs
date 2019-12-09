@@ -43,7 +43,7 @@ namespace Hero_Wave_Survival.Heroes.Warrior
 
         private void BtnUseHP_Click(object sender, EventArgs e)
         {
-            if(Health < 100)
+            if(Health < MaxHealth)
             {
                 Heal();
             }
